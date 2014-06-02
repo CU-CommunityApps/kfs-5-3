@@ -156,4 +156,31 @@
 			<column name="APPL_ID" value="KFS"/>
 		</insert>
 	</changeSet>
+	
+	<changeSet author="KFS53" id="KKFSCNTRB-594">
+        <comment>Adds parameter for KKFSCNTRB-594 for Default chart code</comment>
+		<insert tableName="KRCR_PARM_T">
+			<column name="NMSPC_CD" value="KFS-SYS"/>
+			<column name="CMPNT_CD" value="Document"/>
+			<column name="PARM_NM" value="DEFAULT_CHART_CODE"/>
+			<column name="OBJ_ID" value="KFSCNTRB-594-PARM1"/>
+			<column name="PARM_TYP_CD" value="CONFG"/>
+			<column name="VAL" value=""/>
+			<column name="PARM_DESC_TXT" value="USED AS A DEFAULT WHEN DEFAULT_CHART_CODE_METHOD IS 1 OR 3."/>
+			<column name="EVAL_OPRTR_CD" value="A"/>
+			<column name="APPL_ID" value="KFS"/>
+		</insert>
+		<insert tableName="KRCR_PARM_T">
+			<column name="NMSPC_CD" value="KFS-SYS"/>
+			<column name="CMPNT_CD" value="Document"/>
+			<column name="PARM_NM" value="DEFAULT_CHART_CODE_METHOD"/>
+			<column name="OBJ_ID" value="KFSCNTRB-594-PARM2"/>
+			<column name="PARM_TYP_CD" value="CONFG"/>
+			<column name="VAL" value=""/>
+			<column name="PARM_DESC_TXT" value="SPECIFY BLANK FOR NO DEFAULT; 1=POPULATE WITH DEFAULT_CHART_CODE; 2=POPULATE CHART CODE OF THE USER'S PRIMARY DEPARTMENT; 3=POPULATE DEFAULT_CHART_CODE UNLESS THE PRIMARY DEPARTMENT IS DEFINED."/>
+			<column name="EVAL_OPRTR_CD" value="A"/>
+			<column name="APPL_ID" value="KFS"/>
+		</insert>
+    </changeSet>
+    
 </databaseChangeLog>
