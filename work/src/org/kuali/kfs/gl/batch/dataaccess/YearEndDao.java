@@ -59,7 +59,8 @@ public interface YearEndDao {
      * Returns a set of the keys (chartOfAccountsCode and accountNumber) of PriorYearAccounts that are missing for the open
      * encumbrances of a given fiscal year and specified charts
      *
-     * @param balanceFiscalYear a fiscal year to find open encumbrances for
+     * @param encumbranceFiscalYear a fiscal year to find open encumbrances for
+     * @param charts list of charts to find balances for
      *
      * @return a set of the missing primary keys
      */

@@ -173,7 +173,7 @@ public interface BalanceDao {
      * This method returns the total count of balances for specified fiscal year and charts
      *
      * @param year fiscal year to check
-     * @param list of specified charts
+     * @param charts list of specified charts
      * @return the count of balances
      */
     public int countBalancesForFiscalYear(Integer year, List<String> charts);
@@ -195,7 +195,10 @@ public interface BalanceDao {
      * This method returns all of the balances specifically for the nominal activity closing job when charts for the annual closing are specified
      *
      * @param year year to find balances for
+     * @param nominalActivityObjectTypeCodes a List of nominal activity object type codes
+     * @param currentYearOptions current year options
      * @param charts list of charts to find balances for
+     *
      * @return an Iterator of nominal activity balances
      */
     public Iterator<Balance> findNominalActivityBalancesForFiscalYear(Integer year, Collection<String> nominalActivityObjectTypeCodes, SystemOptions currentYearOptions, List<String> charts);
@@ -242,6 +245,10 @@ public interface BalanceDao {
      * Returns the C&G balances specifically to be forwarded to the next fiscal year, based on the "cumulative" rule
      *
      * @param year the fiscal year to find balances for
+     * @param cumulativeForwardBalanceObjectTypes a List of cumulative Forward Balance Object Types
+     * @param contractsAndGrantsDenotingValues a List of contracts And Grants Denoting Values
+     * @param subFundGroupsForCumulativeBalanceForwardingArray an array of sub Fund Groups For Cumulative Balance Forwarding
+     * @param cumulativeBalanceForwardBalanceTypesArray an array of cumulative Balance Forward Balance Types
      * @param charts charts to find balances for
      * @return and Iterator chuck full of Balances
      */

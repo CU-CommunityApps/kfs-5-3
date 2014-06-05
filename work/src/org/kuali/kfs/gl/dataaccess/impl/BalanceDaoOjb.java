@@ -630,7 +630,7 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
     /**
      * Returns the count of balances for a given fiscal year and specified charts; this method is used for year end job reporting
      * @param year the university fiscal year to count balances for
-     * @param list of charts to count balances for
+     * @param charts list of charts to count balances for
      * @return an int with the count of balances for all charts specied in that fiscal year
      * @see org.kuali.kfs.gl.dataaccess.BalanceDao#countBalancesForFiscalYear(java.lang.Integer, java.util.List)
      */
@@ -677,15 +677,10 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
     }
 
     // KFSCNTRB-1459
-    /**
-     * Finds all of the balances for the fiscal year and specified charts that should be processed by nominal activity closing
-     *
-     * @param year the university fiscal year of balances to find
-     * @param charts list of charts to find balances for
-     * @return an Iterator of Balances to process
-     * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findNominalActivityBalancesForFiscalYear(java.lang.Integer, java.util.List)
+     /**
+     * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findNominalActivityBalancesForFiscalYear(java.lang.Integer, java.util.Collection, org.kuali.kfs.sys.businessobject.SystemOptions, java.util.List)
      */
-     @Override
+    @Override
     public Iterator<Balance> findNominalActivityBalancesForFiscalYear(Integer year, Collection<String> nominalActivityObjectTypeCodes, SystemOptions currentYearOptions, List<String> charts) {
         LOG.debug("findNominalActivityBalancesForFiscalYear(year, charts) started");
 
@@ -736,14 +731,8 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
     }
 
     // KFSCNTRB-1459
-
     /**
-     * Returns all of the balances that should be processed by the BalanceForward year end job under the general rule
-     *
-     * @param the university fiscal year to find balances for
-     * @param charts to find balances for
-     * @return an Iterator of Balances to process
-     * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findCumulativeBalancesToForwardForFiscalYear(java.lang.Integer, java.util.List)
+     * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findGeneralBalancesToForwardForFiscalYear(java.lang.Integer, java.util.Collection, java.util.Collection, java.util.List)
      */
     @Override
     public Iterator<Balance> findGeneralBalancesToForwardForFiscalYear(Integer year, Collection<String> generalForwardBalanceObjectTypes, Collection<String> generalBalanceForwardBalanceTypes, List<String> charts) {
@@ -816,14 +805,8 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
     }
 
     // KFSCNTRB-1459
-
     /**
-     * Returns all of the balances that should be processed by the BalanceForward year end job under the active rule
-     *
-     * @param year the university fiscal year to find balances for
-     * @param charts charts to find balances for
-     * @return an Iterator of Balances to process
-     * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findGeneralBalancesToForwardForFiscalYear(java.lang.Integer, java.util.List)
+     * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findCumulativeBalancesToForwardForFiscalYear(java.lang.Integer, java.util.Collection, java.util.Collection, java.util.Collection, java.util.Collection, boolean, java.util.List)
      */
     @Override
     public Iterator<Balance> findCumulativeBalancesToForwardForFiscalYear(Integer year, Collection<String> cumulativeForwardBalanceObjectTypes, Collection<String> contractsAndGrantsDenotingValues, Collection<String> subFundGroupsForCumulativeBalanceForwarding, Collection<String> cumulativeBalanceForwardBalanceTypes, boolean fundGroupDenotesCGInd, List<String> charts) {

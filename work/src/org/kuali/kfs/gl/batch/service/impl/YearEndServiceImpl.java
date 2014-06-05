@@ -481,8 +481,6 @@ public class YearEndServiceImpl implements YearEndService {
 
     // KFSCNTRB-1459
     /**
-     * @param fiscalYear the fiscal year to find balances encumbrances for
-     * @param charts list of charts to find balances for
      * @see org.kuali.kfs.gl.batch.service.YearEndService#logAllMissingPriorYearAccounts(java.lang.Integer, java.util.List)
      */
     @Override
@@ -511,8 +509,6 @@ public class YearEndServiceImpl implements YearEndService {
 
     // KFSCNTRB-1459
     /**
-     * @param balanceFiscalYear the fiscal year to find balances encumbrances for
-     * @param charts the charts list of charts to find balances encumbrances for
      * @see org.kuali.kfs.gl.batch.service.YearEndService#logAllMissingSubFundGroups(java.lang.Integer, java.util.List)
      */
     @Override
