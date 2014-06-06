@@ -138,6 +138,7 @@ public interface BalanceService {
      */
     public int countBalancesForFiscalYear(Integer year);
 
+    // KFSCNTRB-1459
     /**
      * This method returns the total count of balances for a fiscal year and specified charts
      *
@@ -146,6 +147,7 @@ public interface BalanceService {
      * @return the count of balances
      */
     public int countBalancesForFiscalYear(Integer year, List<String> charts);
+    // end KFSCNTRB-1459
 
     /**
      * This method returns all of the balances specifically for the nominal activity closing job
@@ -155,6 +157,7 @@ public interface BalanceService {
      */
     public Iterator<Balance> findNominalActivityBalancesForFiscalYear(Integer year);
 
+    // KFSCNTRB-1459
     /**
      * This method returns all of the balances specifically for the nominal activity closing job when annual closing charts are specified
      *
@@ -163,6 +166,7 @@ public interface BalanceService {
      * @return an Iterator of nominal activity balances
      */
     public Iterator<Balance> findNominalActivityBalancesForFiscalYear(Integer year, List<String> charts);
+    // end KFSCNTRB-1459
 
     /**
      * Returns all the balances specifically to be processed by the balance forwards job for the "general" rule
@@ -172,6 +176,7 @@ public interface BalanceService {
      */
     public Iterator<Balance> findGeneralBalancesToForwardForFiscalYear(Integer year);
 
+    // KFSCNTRB-1459
     /**
      * Returns all the balances specifically to be processed by the balance forwards job for the "general" rule
      * for the specified fiscal year and charts
@@ -181,6 +186,8 @@ public interface BalanceService {
      * @return an Iterator of balances to process for the general balance forward process
      */
     public Iterator<Balance> findGeneralBalancesToForwardForFiscalYear(Integer year, List<String> charts);
+    // end KFSCNTRB-1459
+
 
     /**
      * Returns all the balances to be forwarded for the "cumulative" rule
@@ -190,6 +197,7 @@ public interface BalanceService {
      */
     public Iterator<Balance> findCumulativeBalancesToForwardForFiscalYear(Integer year);
 
+    // KFSCNTRB-1459
     /**
      * Returns all the balances to be forwarded for the "cumulative" rule
      * @param year the fiscal year to find balances for
@@ -197,6 +205,7 @@ public interface BalanceService {
      * @return an Iterator of balances to process for the cumulative/active balance forward process
      */
     public Iterator<Balance> findCumulativeBalancesToForwardForFiscalYear(Integer year, List<String> charts);
+    // end KFSCNTRB-1459
 
     /**
      * Returns all of the balances to be forwarded for the organization reversion process

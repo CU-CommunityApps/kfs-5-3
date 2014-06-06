@@ -51,6 +51,7 @@ public class NominalActivityClosingHelper {
     private FlexibleOffsetAccountService flexibleOffsetService;
     private Logger LOG = Logger.getLogger(NominalActivityClosingHelper.class);
     private int nonFatalErrorCount;
+    // KFSCNTRB-1459
     private List<String> varCharts;
 
     /**
@@ -80,6 +81,7 @@ public class NominalActivityClosingHelper {
         varFundBalanceObjectCode = parameterService.getParameterValueAsString(KfsParameterConstants.GENERAL_LEDGER_BATCH.class, GeneralLedgerConstants.ANNUAL_CLOSING_FUND_BALANCE_OBJECT_CODE_PARM);
         varFundBalanceObjectTypeCode = parameterService.getParameterValueAsString(KfsParameterConstants.GENERAL_LEDGER_BATCH.class, GeneralLedgerConstants.ANNUAL_CLOSING_FUND_BALANCE_OBJECT_TYPE_PARM);
 
+        // KFSCNTRB-1459
         //Obtain list of charts to close from Parameter ANNUAL_CLOSING_CHARTS_PARAM.
         //If no parameter value exists, act on all charts which is the default action in the delivered foundation code.
         varCharts = new ArrayList<String>();
@@ -102,6 +104,7 @@ public class NominalActivityClosingHelper {
             //parameter is not defined, act on all charts per foundation delivered code
             LOG.info("ANNUAL_CLOSING_CHARTS parameter was not defined for KFS-GL Batch. All charts will be acted upon for NominalActivityClosingJob.");
         }
+        // end KFSCNTRB-1459
     }
 
     /**
@@ -739,6 +742,7 @@ public class NominalActivityClosingHelper {
         nominalClosingJobParameters.put(GeneralLedgerConstants.ColumnNames.NET_REV_OBJECT_CD, varNetRevenueObjectCode);
         nominalClosingJobParameters.put(GeneralLedgerConstants.ColumnNames.FUND_BAL_OBJECT_CD, varFundBalanceObjectCode);
         nominalClosingJobParameters.put(GeneralLedgerConstants.ColumnNames.FUND_BAL_OBJ_TYP_CD, varFundBalanceObjectTypeCode);
+        // KFSCNTRB-1459
         nominalClosingJobParameters.put(GeneralLedgerConstants.ColumnNames.CHART_OF_ACCOUNTS_CODE, varCharts);
     }
 
@@ -786,6 +790,7 @@ public class NominalActivityClosingHelper {
         return new Integer(this.nonFatalErrorCount);
     }
 
+    // KFSCNTRB-1459
     /**
      * Returns the boolean from the chart parameter list being empty
      * @return isEmpty boolean value for chart List

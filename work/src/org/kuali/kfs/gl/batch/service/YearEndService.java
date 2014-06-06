@@ -70,6 +70,7 @@ public interface YearEndService {
      */
     public void logAllMissingPriorYearAccounts(Integer fiscalYear);
 
+    // KFSCNTRB-1459
     /**
      * Logs all of the missing prior year accounts based on chart that balances and encumbrances processed by year end jobs would attempt to call
      * on
@@ -78,6 +79,7 @@ public interface YearEndService {
      * @param charts list of charts to find prior year accounts for
      */
     public void logAllMissingPriorYearAccounts(Integer fiscalYear, List<String> charts);
+    // end KFSCNTRB-1459
 
     /**
      * Logs all of the missing sub fund groups that balances and encumbrances processed by the year end job would attempt to call on
@@ -86,6 +88,7 @@ public interface YearEndService {
      */
     public void logAllMissingSubFundGroups(Integer fiscalYear);
 
+    // KFSCNTRB-1459
     /**
      * Logs all of the missing sub fund groups based on chart that balances and encumbrances processed by the year end job would attempt to call on
      *
@@ -93,4 +96,5 @@ public interface YearEndService {
      * @param charts list of charts to find sub fund groups for
      */
     public void logAllMissingSubFundGroups(Integer fiscalYear, List<String> charts);
+    // end KFSCNTRB-1459
 }

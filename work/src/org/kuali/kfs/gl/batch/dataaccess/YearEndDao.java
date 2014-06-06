@@ -33,6 +33,7 @@ public interface YearEndDao {
      */
     public Set<Map<String, String>> findKeysOfMissingPriorYearAccountsForBalances(Integer balanceFiscalYear);
 
+    // KFSCNTRB-1459
     /**
      * Returns the keys (Chart Code and Account Number) of PriorYearAccounts that are missing for the balances associated with the
      * given fiscal year and specified charts
@@ -42,6 +43,7 @@ public interface YearEndDao {
      * @return a set of the missing primary keys
      */
     public Set<Map<String, String>> findKeysOfMissingPriorYearAccountsForBalances(Integer balanceFiscalYear, List<String> balanceCharts);
+    // end KFSCNTRB-1459
 
     /**
      * Returns a set of the keys (chartOfAccountsCode and accountNumber) of PriorYearAccounts that are missing for the open
@@ -52,6 +54,7 @@ public interface YearEndDao {
      */
     public Set<Map<String, String>> findKeysOfMissingPriorYearAccountsForOpenEncumbrances(Integer encumbranceFiscalYear);
 
+    // KFSCNTRB-1459
     /**
      * Returns a set of the keys (chartOfAccountsCode and accountNumber) of PriorYearAccounts that are missing for the open
      * encumbrances of a given fiscal year and specified charts
@@ -62,6 +65,7 @@ public interface YearEndDao {
      * @return a set of the missing primary keys
      */
     public Set<Map<String, String>> findKeysOfMissingPriorYearAccountsForOpenEncumbrances(Integer encumbranceFiscalYear, List<String> charts);
+    // end KFSCNTRB-1459
 
     /**
      * Returns a set of the keys (subFundGroupCode) of sub fund groups that are missing for the prior year accounts associated with
@@ -72,6 +76,7 @@ public interface YearEndDao {
      */
     public Set<Map<String, String>> findKeysOfMissingSubFundGroupsForBalances(Integer balanceFiscalYear);
 
+    // KFSCNTRB-1459
     /**
      * Returns a set of the keys (subFundGroupCode) of sub fund groups that are missing for the prior year accounts associated with
      * a fiscal year and specified charts to find balances for
@@ -81,6 +86,7 @@ public interface YearEndDao {
      * @return a set of missing primary keys
      */
     public Set<Map<String, String>> findKeysOfMissingSubFundGroupsForBalances(Integer balanceFiscalYear, List<String> chartsList);
+    // end KFSCNTRB-1459
 
     /**
      * Returns a set of the keys (subFundGroupCode) of sub fund groups that are missing for the prior year accounts associated with
@@ -91,6 +97,7 @@ public interface YearEndDao {
      */
     public Set<Map<String, String>> findKeysOfMissingSubFundGroupsForOpenEncumbrances(Integer encumbranceFiscalYear);
 
+    // KFSCNTRB-1459
     /**
      * Returns a set of the keys (subFundGroupCode) of sub fund groups that are missing for the prior year accounts associated with
      * a fiscal year and specified charts to find open encumbrances for
@@ -100,4 +107,5 @@ public interface YearEndDao {
      * @return a set of missing primary keys
      */
     public Set<Map<String, String>> findKeysOfMissingSubFundGroupsForOpenEncumbrances(Integer encumbranceFiscalYear, List<String> encumbranceCharts);
+    // end KFSCNTRB-1459
 }

@@ -42,6 +42,7 @@ public interface EncumbranceDao {
      */
     public Iterator getEncumbrancesToClose(Integer fiscalYear);
 
+    // KFSCNTRB-1459
     /**
      * Returns an Iterator of all encumbrances that need to be closed for the fiscal year and specified charts
      *
@@ -50,6 +51,7 @@ public interface EncumbranceDao {
      * @return an Iterator of encumbrances to close
      */
     public Iterator getEncumbrancesToClose(Integer fiscalYear, List<String> charts);
+    // end KFSCNTRB-1459
 
     /**
      * Purges the database of all those encumbrances with the given chart and year

@@ -94,6 +94,8 @@ public class EncumbranceDaoOjb extends PlatformAwareDaoBaseOjb implements Encumb
         return getPersistenceBrokerTemplate().getIteratorByQuery(query);
     }
 
+    // KFSCNTRB-1459
+
     /**
      * Returns an Iterator of all encumbrances that need to be closed for the fiscal year and specified charts
      *
@@ -119,6 +121,7 @@ public class EncumbranceDaoOjb extends PlatformAwareDaoBaseOjb implements Encumb
 
         return getPersistenceBrokerTemplate().getIteratorByQuery(query);
     }
+    // end KFSCNTRB-1459
 
     /**
      * Purges the database of all those encumbrances with the given chart and year
