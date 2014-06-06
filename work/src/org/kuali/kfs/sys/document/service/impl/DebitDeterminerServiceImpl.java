@@ -104,23 +104,17 @@ public class DebitDeterminerServiceImpl implements DebitDeterminerService {
         KualiDecimal amount = postable.getAmount();
         boolean isPositiveAmount = amount.isPositive();
 
-        if (amount.isNegative() && poster instanceof DisbursementVoucherDocument) {
-                return false;
-        }
-        if (amount.isNegative() && poster instanceof NonCheckDisbursementDocument) {
-                return false;
-        }
         // isDebit if income/liability/expense/asset and line amount is positive
         if (isPositiveAmount && (isIncomeOrLiability(postable) || isExpenseOrAsset(postable))) {
             isDebit = true;
         }
         else {
-            // non error correction
-            if (!isErrorCorrection(poster)) {
+            // non error correction or DV
+            if (!isErrorCorrection(poster) || !(poster instanceof DisbursementVoucherDocument) || !(poster instanceof NonCheckDisbursementDocument)) {
                 throw new IllegalStateException(isDebitCalculationIllegalStateExceptionMessage);
 
             }
-            // error correction
+            // error correction or DV
             else {
                 isDebit = false;
             }
