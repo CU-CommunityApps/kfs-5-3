@@ -510,7 +510,6 @@ public class BalanceServiceImpl implements BalanceService {
         return balanceDao.countBalancesForFiscalYear(year);
     }
 
-    // KFSCNTRB-1459
     /**
      * Uses the DAO to count the number of balances associated with the given fiscal year and all specified  charts
      *
@@ -523,7 +522,6 @@ public class BalanceServiceImpl implements BalanceService {
     public int countBalancesForFiscalYear(Integer year, List<String> charts) {
         return balanceDao.countBalancesForFiscalYear(year, charts);
     }
-    // end KFSCNTRB-1459
 
     /**
      * This method returns all of the balances specifically for the nominal activity closing job
@@ -540,7 +538,6 @@ public class BalanceServiceImpl implements BalanceService {
         return balanceDao.findNominalActivityBalancesForFiscalYear(year, nominalActivityObjectTypeCodes, currentYearOptions);
     }
 
-    // KFSCNTRB-1459
     /**
      * This method returns all of the balances specifically for the nominal activity closing job when annual closing charts are specified
      *
@@ -556,7 +553,6 @@ public class BalanceServiceImpl implements BalanceService {
         SystemOptions currentYearOptions = optionsService.getCurrentYearOptions();
         return balanceDao.findNominalActivityBalancesForFiscalYear(year, nominalActivityObjectTypeCodes, currentYearOptions, charts);
     }
-    // end KFSCNTRB-1459
 
     /**
      * Returns all the balances to be forwarded for the "cumulative" rule
@@ -580,7 +576,6 @@ public class BalanceServiceImpl implements BalanceService {
         return filteredBalances;
     }
 
-    // KFSCNTRB-1459
     /**
      * Returns all the balances to be forwarded for the "cumulative" rule
      * @param year the fiscal year to find balances for
@@ -602,7 +597,6 @@ public class BalanceServiceImpl implements BalanceService {
 
         return filteredBalances;
     }
-    // end KFSCNTRB-1459
 
     /**
      * Returns all the balances specifically to be processed by the balance forwards job for the "general" rule
@@ -624,7 +618,6 @@ public class BalanceServiceImpl implements BalanceService {
         return filteredBalances;
     }
 
-    // KFSCNTRB-1459
     /**
      * Returns all the balances specifically to be processed by the balance forwards job for the "general" rule
      * @param year the fiscal year to find balances for
@@ -644,7 +637,6 @@ public class BalanceServiceImpl implements BalanceService {
 
         return filteredBalances;
     }
-    // end KFSCNTRB-1459
 
     /**
      * Returns all of the balances to be forwarded for the organization reversion process

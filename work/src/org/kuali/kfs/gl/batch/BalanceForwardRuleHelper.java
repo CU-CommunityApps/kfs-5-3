@@ -165,7 +165,6 @@ public class BalanceForwardRuleHelper {
     private String annualClosingDocType;
     private String glOriginationCode;
     private Map<String, Boolean> balanceTypeEncumbranceIndicators;
-    // KFSCNTRB-1459
     private List<String> annualClosingCharts;
 
     private BalanceForwardProcessState state;
@@ -183,14 +182,13 @@ public class BalanceForwardRuleHelper {
         openAccountForwardBalanceLedgerReport = new LedgerSummaryReport();
         closedAccountForwardBalanceLedgerReport = new LedgerSummaryReport();
 
-        // KFSCNTRB-1459
         //Obtain list of charts to for the balance forwarding from Parameter ANNUAL_CLOSING_CHARTS_PARAM.
         //If no parameter value exists, act on all charts which is the default action in the delivered foundation code.
         annualClosingCharts = new ArrayList<String>();
         try {
             String[] varChartsArray = parameterService.getParameterValuesAsString(KfsParameterConstants.GENERAL_LEDGER_BATCH.class, GeneralLedgerConstants.ANNUAL_CLOSING_CHARTS_PARAM).toArray(new String[] {});
 
-            if ((varChartsArray != null) && (varChartsArray.length != 0)) {
+            if (ObjectUtils.isNotNull(varChartsArray)&& (varChartsArray.length != 0)) {
                 //transfer charts from parameter to List for database query
                 for (String chartParam : varChartsArray) {
                     annualClosingCharts.add(chartParam);
@@ -206,7 +204,6 @@ public class BalanceForwardRuleHelper {
             //parameter is not defined, act on all charts per foundation delivered code
             LOG.info("ANNUAL_CLOSING_CHARTS parameter was not defined for KFS-GL Batch. All charts will be acted upon for BalanceForwardJob.");
         }
-       // end KFSCNTRB-1459
 
     }
 
@@ -278,7 +275,7 @@ public class BalanceForwardRuleHelper {
             LOG.info(("COULD NOT RETRIEVE INFORMATION ON ACCOUNT " + balance.getChartOfAccountsCode() + "-" + balance.getAccountNumber()));
         }
         else {
-            if ((null == balance.getAccountNumber() && null == state.getAccountNumberHold()) || (null != balance.getAccountNumber() && balance.getAccountNumber().equals(state.getAccountNumberHold()))) {
+            if ((ObjectUtils.isNull(balance.getAccountNumber()) && ObjectUtils.isNull(state.getAccountNumberHold())) || (ObjectUtils.isNotNull(balance.getAccountNumber()) && balance.getAccountNumber().equals(state.getAccountNumberHold()))) {
                 state.incrementSequenceNumber();
             }
             else {
@@ -660,7 +657,6 @@ public class BalanceForwardRuleHelper {
         return annualClosingDocType;
     }
 
-    // KFSCNTRB-1459
     public List <String> getAnnualClosingCharts() {
         return annualClosingCharts;
     }
@@ -672,5 +668,4 @@ public class BalanceForwardRuleHelper {
     public boolean isAnnualClosingChartParamterBlank(){
         return annualClosingCharts.isEmpty();
     }
-    // end KFSCNTRB-1459
 }

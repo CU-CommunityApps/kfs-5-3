@@ -29,6 +29,7 @@ import org.kuali.kfs.gl.batch.service.YearEndService;
 import org.kuali.kfs.sys.batch.AbstractWrappedBatchStep;
 import org.kuali.kfs.sys.batch.service.WrappedBatchExecutorService.CustomBatchExecutor;
 import org.kuali.kfs.sys.service.impl.KfsParameterConstants;
+import org.kuali.rice.krad.util.ObjectUtils;
 import org.springframework.util.StopWatch;
 
 /**
@@ -61,7 +62,6 @@ public class EncumbranceForwardStep extends AbstractWrappedBatchStep {
                 Map jobParameters = new HashMap();
                 Integer varFiscalYear = null;
                 Date varTransactionDate = null;
-                // KFSCNTRB-1459
                 List<String> varCharts = null;
 
                 String FIELD_FISCAL_YEAR = GeneralLedgerConstants.ColumnNames.UNIVERSITY_FISCAL_YEAR;
@@ -80,14 +80,13 @@ public class EncumbranceForwardStep extends AbstractWrappedBatchStep {
                     throw new RuntimeException("Unable to get transaction date from kualiConfigurationService", pe);
                 }
 
-                // KFSCNTRB-1459
                 //Obtain list of charts to close from Parameter ANNUAL_CLOSING_CHARTS_PARAM.
                 //If no parameter value exists, act on all charts which is the default action in the delivered foundation code.
                 varCharts = new ArrayList<String>();
                 try {
                     String[] varChartsArray = getParameterService().getParameterValuesAsString(KfsParameterConstants.GENERAL_LEDGER_BATCH.class, GeneralLedgerConstants.ANNUAL_CLOSING_CHARTS_PARAM).toArray(new String[] {});
 
-                    if ((varChartsArray != null) && (varChartsArray.length != 0)) {
+                    if (ObjectUtils.isNotNull(varChartsArray) && (varChartsArray.length != 0)) {
                         //transfer charts from parameter to List for database query
                         for (String chartParam : varChartsArray) {
                             varCharts.add(chartParam);
@@ -103,11 +102,9 @@ public class EncumbranceForwardStep extends AbstractWrappedBatchStep {
                     //parameter is not defined, act on all charts per foundation delivered code
                     LOG.info("ANNUAL_CLOSING_CHARTS parameter was not defined for KFS-GL Batch. All charts will be acted upon for EncumbranceForwardJob.");
                 }
-                // end KFSCNTRB-1459
 
                 jobParameters.put(GeneralLedgerConstants.ColumnNames.UNIVERSITY_FISCAL_YEAR, varFiscalYear);
                 jobParameters.put(GeneralLedgerConstants.ColumnNames.UNIV_DT, varTransactionDate);
-                // KFSCNTRB-1459
                 jobParameters.put(GeneralLedgerConstants.ColumnNames.CHART_OF_ACCOUNTS_CODE, varCharts);
 
                 String encumbranceForwardFileName = GeneralLedgerConstants.BatchFileSystem.ENCUMBRANCE_FORWARD_FILE + GeneralLedgerConstants.BatchFileSystem.EXTENSION;

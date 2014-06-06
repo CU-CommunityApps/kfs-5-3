@@ -71,7 +71,6 @@ public class BalanceForwardStep extends AbstractWrappedBatchStep {
 
                 BalanceForwardRuleHelper balanceForwardRuleHelper = new BalanceForwardRuleHelper(varFiscalYear, varTransactionDate, balanceForwardsclosedFileName, balanceForwardsUnclosedFileName);
 
-                // KFSCNTRB-1459
                 if (balanceForwardRuleHelper.isAnnualClosingChartParamterBlank()) {
                     //execute delivered foundation code, either ANNUAL_CLOSING_CHARTS parameter did not exist or there were no values specified
                     yearEndService.logAllMissingPriorYearAccounts(varFiscalYear);
@@ -82,9 +81,7 @@ public class BalanceForwardStep extends AbstractWrappedBatchStep {
                     yearEndService.logAllMissingPriorYearAccounts(varFiscalYear, balanceForwardRuleHelper.getAnnualClosingCharts());
                     yearEndService.logAllMissingSubFundGroups(varFiscalYear, balanceForwardRuleHelper.getAnnualClosingCharts());
                 }
-
                 //methods called internally deal with chart param being populated so was not moved inside if-then-else
-                // end KFSCNTRB-1459
 
                 yearEndService.forwardBalances(balanceForwardsUnclosedFileName, balanceForwardsclosedFileName, balanceForwardRuleHelper);
 
