@@ -145,7 +145,6 @@ public class GeneralLedgerConstants {
     public static final String ANNUAL_CLOSING_FUND_BALANCE_OBJECT_CODE_PARM = "ANNUAL_CLOSING_FUND_BALANCE_OBJECT_CODE";
     public static final String ANNUAL_CLOSING_FUND_BALANCE_OBJECT_TYPE_PARM = "ANNUAL_CLOSING_FUND_BALANCE_OBJECT_TYPE";
     public static final String ANNUAL_CLOSING_DOCUMENT_TYPE = "ANNUAL_CLOSING_DOCUMENT_TYPE";
-    // KFSCNTRB-1459
     public static final String ANNUAL_CLOSING_CHARTS_PARAM = "ANNUAL_CLOSING_CHARTS";
 
     public static class GlAccountBalanceGroupParameters {

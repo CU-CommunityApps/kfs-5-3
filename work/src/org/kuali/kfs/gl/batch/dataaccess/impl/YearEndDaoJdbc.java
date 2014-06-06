@@ -90,7 +90,6 @@ public class YearEndDaoJdbc extends PlatformAwareDaoBaseJdbc implements YearEndD
         return selectMissingPriorYearAccounts(priorYearKeys);
     }
 
-    // KFSCNTRB-1459
     /**
      * Queries the database to find missing prior year accounts
      *
@@ -111,7 +110,6 @@ public class YearEndDaoJdbc extends PlatformAwareDaoBaseJdbc implements YearEndD
         // 2. go through that list, finding which prior year accounts don't show up in the database
         return selectMissingPriorYearAccounts(priorYearKeys);
     }
-    // end KFSCNTRB-1459
 
     /**
      * This method puts all of the prior year accounts that aren't in the database, based on the list of keys sent in, into the
@@ -146,7 +144,6 @@ public class YearEndDaoJdbc extends PlatformAwareDaoBaseJdbc implements YearEndD
         return selectMissingSubFundGroups(subFundGroupKeys);
     }
 
-    // KFSCNTRB-1459
     /**
      * Queries the database to find missing sub fund groups
      *
@@ -164,7 +161,6 @@ public class YearEndDaoJdbc extends PlatformAwareDaoBaseJdbc implements YearEndD
         List subFundGroupKeys = getJdbcTemplate().query(buildQuery.toString(), subFundGroupRowMapper);
         return selectMissingSubFundGroups(subFundGroupKeys);
     }
-    // end KFSCNTRB-1459
 
     /**
      * This method puts all of the sub fund groups that are in the given list of subFundGroupKeys but aren't in the database into
@@ -198,7 +194,6 @@ public class YearEndDaoJdbc extends PlatformAwareDaoBaseJdbc implements YearEndD
         return selectMissingPriorYearAccounts(priorYearKeys);
     }
 
-    // KFSCNTRB-1459
     /**
      * Queries the database to find missing prior year account records for specified charts referred to by encumbrance records
      *
@@ -216,7 +211,6 @@ public class YearEndDaoJdbc extends PlatformAwareDaoBaseJdbc implements YearEndD
         List priorYearKeys = getJdbcTemplate().query(buildQuery.toString(), priorYearAccountRowMapper);
         return selectMissingPriorYearAccounts(priorYearKeys);
     }
-    // end KFSCNTRB-1459
 
     /**
      * Queries the database to find missing sub fund group records referred to by encumbrances
@@ -231,7 +225,6 @@ public class YearEndDaoJdbc extends PlatformAwareDaoBaseJdbc implements YearEndD
         return selectMissingSubFundGroups(subFundGroupKeys);
     }
 
-    // KFSCNTRB-1459
     /**
      * Queries the database to find missing sub fund group records referred to by encumbrances
      *
@@ -271,6 +264,5 @@ public class YearEndDaoJdbc extends PlatformAwareDaoBaseJdbc implements YearEndD
         }
         return valuesFormattedForInClause.toString();
     }
-    // end KFSCNTRB-1459
 
 }

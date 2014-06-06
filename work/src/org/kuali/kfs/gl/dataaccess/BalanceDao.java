@@ -168,7 +168,6 @@ public interface BalanceDao {
      */
     public int countBalancesForFiscalYear(Integer year);
 
-    // KFSCNTRB-1459
     /**
      * This method returns the total count of balances for specified fiscal year and charts
      *
@@ -177,7 +176,6 @@ public interface BalanceDao {
      * @return the count of balances
      */
     public int countBalancesForFiscalYear(Integer year, List<String> charts);
-    // end KFSCNTRB-1459
 
     /**
      * This method returns all of the balances specifically for the nominal activity closing job
@@ -188,8 +186,6 @@ public interface BalanceDao {
      * @return an Iterator of nominal activity balances
      */
     public Iterator<Balance> findNominalActivityBalancesForFiscalYear(Integer year, Collection<String> nominalActivityObjectTypeCodes, SystemOptions currentYearOptions);
-
-    // KFSCNTRB-1459
 
     /**
      * This method returns all of the balances specifically for the nominal activity closing job when charts for the annual closing are specified
@@ -202,7 +198,6 @@ public interface BalanceDao {
      * @return an Iterator of nominal activity balances
      */
     public Iterator<Balance> findNominalActivityBalancesForFiscalYear(Integer year, Collection<String> nominalActivityObjectTypeCodes, SystemOptions currentYearOptions, List<String> charts);
-    // end KFSCNTRB-1459
 
     /**
      * Returns the balances specifically to be forwarded to the next fiscal year, based on the "general" rule
@@ -214,8 +209,6 @@ public interface BalanceDao {
      */
     public Iterator<Balance> findGeneralBalancesToForwardForFiscalYear(Integer year, Collection<String> generalForwardBalanceObjectTypes, Collection<String> generalBalanceForwardBalanceTypesArray);
 
-    // KFSCNTRB-1459
-
     /**
      * Returns the balances specifically to be forwarded to the next fiscal year, based on the "general" rule
      *
@@ -226,7 +219,6 @@ public interface BalanceDao {
      * @return an Iterator full of Balances
      */
     public Iterator<Balance> findGeneralBalancesToForwardForFiscalYear(Integer year, Collection<String> generalForwardBalanceObjectTypes, Collection<String> generalBalanceForwardBalanceTypesArray, List<String> charts);
-    // end KFSCNTRB-1459
 
     /**
      * Returns the C&G balances specifically to be forwarded to the next fiscal year, based on the "cumulative" rule
@@ -240,7 +232,6 @@ public interface BalanceDao {
      */
     public Iterator<Balance> findCumulativeBalancesToForwardForFiscalYear(Integer year, Collection<String> cumulativeForwardBalanceObjectTypes, Collection<String> contractsAndGrantsDenotingValues, Collection<String> subFundGroupsForCumulativeBalanceForwardingArray, Collection<String> cumulativeBalanceForwardBalanceTypesArray, boolean fundGroupDenotesCGInd);
 
-    // KFSCNTRB-1459
     /**
      * Returns the C&G balances specifically to be forwarded to the next fiscal year, based on the "cumulative" rule
      *
@@ -253,7 +244,6 @@ public interface BalanceDao {
      * @return and Iterator chuck full of Balances
      */
     public Iterator<Balance> findCumulativeBalancesToForwardForFiscalYear(Integer year, Collection<String> cumulativeForwardBalanceObjectTypes, Collection<String> contractsAndGrantsDenotingValues, Collection<String> subFundGroupsForCumulativeBalanceForwardingArray, Collection<String> cumulativeBalanceForwardBalanceTypesArray, boolean fundGroupDenotesCGInd, List<String> charts);
-    // end KFSCNTRB-1459
 
     /**
      * Returns the balances that would specifically be picked up by the Organization Reversion year end process

@@ -626,7 +626,6 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
         return getPersistenceBrokerTemplate().getCount(query);
     }
 
-    // KFSCNTRB-1459
     /**
      * Returns the count of balances for a given fiscal year and specified charts; this method is used for year end job reporting
      * @param year the university fiscal year to count balances for
@@ -645,7 +644,6 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
 
         return getPersistenceBrokerTemplate().getCount(query);
     }
-    // end KFSCNTRB-1459
 
     /**
      * Finds all of the balances for the fiscal year that should be processed by nominal activity closing
@@ -676,7 +674,6 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
         return getPersistenceBrokerTemplate().getIteratorByQuery(query);
     }
 
-    // KFSCNTRB-1459
      /**
      * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findNominalActivityBalancesForFiscalYear(java.lang.Integer, java.util.Collection, org.kuali.kfs.sys.businessobject.SystemOptions, java.util.List)
      */
@@ -702,7 +699,6 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
 
         return getPersistenceBrokerTemplate().getIteratorByQuery(query);
     }
-    // end KFSCNTRB-1459
 
     /**
      * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findGeneralBalancesToForwardForFiscalYear(java.lang.Integer, java.util.List,
@@ -730,7 +726,6 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
         return balances;
     }
 
-    // KFSCNTRB-1459
     /**
      * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findGeneralBalancesToForwardForFiscalYear(java.lang.Integer, java.util.Collection, java.util.Collection, java.util.List)
      */
@@ -760,7 +755,6 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
 
         return filteredBalances;
     }
-    // end KFSCNTRB-1459
 
     /**
      * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findCumulativeBalancesToForwardForFiscalYear(java.lang.Integer, java.util.List,
@@ -804,7 +798,6 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
         return balances;
     }
 
-    // KFSCNTRB-1459
     /**
      * @see org.kuali.kfs.gl.dataaccess.BalanceDao#findCumulativeBalancesToForwardForFiscalYear(java.lang.Integer, java.util.Collection, java.util.Collection, java.util.Collection, java.util.Collection, boolean, java.util.List)
      */
@@ -849,7 +842,6 @@ public class BalanceDaoOjb extends PlatformAwareDaoBaseOjb implements BalanceDao
 
         return filteredBalances;
     }
-    // end KFSCNTRB-1459
 
     /**
      * Returns a list of balances to return for the Organization Reversion year end job to process
